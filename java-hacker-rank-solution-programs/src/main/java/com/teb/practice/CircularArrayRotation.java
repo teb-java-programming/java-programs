@@ -9,6 +9,7 @@ package com.teb.practice;
  */
 
 import static com.teb.practice.constants.Constants.SCAN;
+import static com.teb.practice.constants.Constants.SPACE;
 
 import static java.lang.System.out;
 import static java.util.Arrays.stream;
@@ -42,9 +43,9 @@ public class CircularArrayRotation {
         out.print("Enter the number of rotations: ");
         int index = SCAN.nextInt();
 
-        String[] stringInput = input.split(" ");
+        String[] stringInput = input.split(SPACE);
         stream(stringInput).forEach(string -> inputList.add(Integer.valueOf(string)));
-        String[] queriesInput = queries.split(" ");
+        String[] queriesInput = queries.split(SPACE);
         stream(queriesInput).forEach(string -> queriesList.add(Integer.valueOf(string)));
 
         out.println("Result: " + circularArrayRotation(inputList, index, queriesList));

@@ -8,11 +8,11 @@ The module consists of basic Java programs starting from printing a simple "Hell
 
 ### Lombok Programs (java-lombok-programs)
 
-The module explains the use of Lombok annotations to replace explicit Getters, Setters, and more.
+The module demonstrates the use of Lombok annotations to replace explicit Getters, Setters, and more.
 
-### Collection Programs (java-collection-programs)
+### Collection Programs (java-collection-stream-programs)
 
-The module explains the use of Collection classes like List, Set, Map etc.
+The module demonstrates the use of Collection classes, and using Streams to manipulate the data.
 
 ### Hacker Rank Solution Programs (java-hacker-rank-solution-programs)
 
@@ -46,7 +46,7 @@ changes. To contribute to the project, please follow the steps below.
 - Create a new branch off the main branch or switch to an existing branch
 
 ```
-git clone git@gitlab.com:teb-java-programming/java-programs.git
+git clone git@github.com:teb-java-programming/java-programs.git
 git checkout -b <newBranch>
 git checkout <main> <existingBranch>
 ```

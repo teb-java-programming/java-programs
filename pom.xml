@@ -12,7 +12,7 @@
     <modules>
         <module>java-basic-programs</module>
         <module>java-lombok-programs</module>
-        <module>java-collection-programs</module>
+        <module>java-collection-stream-programs</module>
         <module>java-hacker-rank-solution-programs</module>
     </modules>
 

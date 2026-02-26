@@ -6,6 +6,7 @@ package com.teb.practice;
  */
 
 import static com.teb.practice.constants.Constants.SCAN;
+import static com.teb.practice.constants.Constants.SPACE;
 
 import static java.lang.System.out;
 
@@ -29,7 +30,7 @@ public class MiniMaxSum {
             maximumSum += inputList.get(i);
         }
 
-        out.println(minimumSum + " " + maximumSum);
+        out.println(minimumSum + SPACE + maximumSum);
     }
 
     public static void main(String[] args) {
