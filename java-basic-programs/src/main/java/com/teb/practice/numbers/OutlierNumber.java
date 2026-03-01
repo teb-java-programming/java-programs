@@ -36,7 +36,7 @@ public class OutlierNumber {
                 .parallel()
                 .filter(n -> Math.abs(n) % 2 == mod)
                 .findFirst()
-                .getAsInt();
+                .orElse(0);
     }
 
     public static void main(String[] args) {

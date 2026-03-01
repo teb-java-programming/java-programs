@@ -6,12 +6,12 @@ package com.teb.practice;
  * When working with different bases, it is common to show the base as a subscript.
  */
 
+import static com.teb.practice.constants.Constants.BLANK;
 import static com.teb.practice.constants.Constants.SCAN;
 
 import static java.lang.Long.toBinaryString;
 import static java.lang.Math.max;
 import static java.lang.System.out;
-import static java.util.Arrays.asList;
 
 import java.util.List;
 
@@ -19,7 +19,7 @@ public class BinaryNumbers {
 
     private static List<String> getStringArray(int input) {
 
-        return asList(toBinaryString(input).split(""));
+        return List.of(toBinaryString(input).split(BLANK));
     }
 
     private static long calculateSumOfBinarySequence(List<String> stringList) {

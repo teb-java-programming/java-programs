@@ -1,5 +1,6 @@
 package com.teb.practice.games;
 
+import static com.teb.practice.constants.Constants.BLANK;
 import static com.teb.practice.constants.Constants.SCAN;
 import static com.teb.practice.constants.Constants.WORDS;
 
@@ -15,8 +16,8 @@ public class Hangman {
     private static final String DISPLAY_MESSAGE = "%nYour word is: %s%n";
 
     private static int errorCounter = 0;
-    private static String completeWord = "";
-    private static String displayedWord = "";
+    private static String completeWord = BLANK;
+    private static String displayedWord = BLANK;
 
     public static void main(String[] args) {
 

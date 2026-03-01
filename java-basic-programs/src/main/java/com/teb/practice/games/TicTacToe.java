@@ -1,5 +1,6 @@
 package com.teb.practice.games;
 
+import static com.teb.practice.constants.Constants.BLANK;
 import static com.teb.practice.constants.Constants.SCAN;
 import static com.teb.practice.constants.Constants.SPACE;
 
@@ -35,7 +36,7 @@ public class TicTacToe {
         printCurrentBoard();
 
         int inputCounter = 1;
-        String input = "";
+        String input = BLANK;
         while (inputCounter >= 1 && inputCounter <= 9) {
             if (inputCounter % 2 == 0) {
                 input = "O";

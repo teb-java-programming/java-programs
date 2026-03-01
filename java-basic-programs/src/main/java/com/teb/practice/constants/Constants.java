@@ -12,6 +12,7 @@ import java.util.Scanner;
 public class Constants {
 
     public static final Scanner SCAN = new Scanner(in);
+    public static final String BLANK = "";
     public static final String SPACE = " ";
 
     public static final List<String> WORDS = of(

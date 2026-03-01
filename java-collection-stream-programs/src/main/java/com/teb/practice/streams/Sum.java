@@ -1,7 +1,6 @@
 package com.teb.practice.streams;
 
 import static java.lang.System.out;
-import static java.util.Arrays.asList;
 import static java.util.stream.IntStream.of;
 
 import java.util.List;
@@ -28,7 +27,7 @@ public class Sum {
 
         int[] integerArray = {2, 1, 16, 4, 8};
         List<Long> longList =
-                asList(1000000002L, 2000000004L, 4000000008L, 8000000016L, 16000000032L);
+                List.of(1000000002L, 2000000004L, 4000000008L, 8000000016L, 16000000032L);
 
         sumIntArray(integerArray);
         sumIntegerList(of(integerArray).boxed().toList());
