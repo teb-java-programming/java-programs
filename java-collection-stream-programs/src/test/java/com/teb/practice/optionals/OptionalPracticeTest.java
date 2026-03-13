@@ -1,4 +1,4 @@
-package com.teb.practice.streams;
+package com.teb.practice.optionals;
 
 import static com.teb.practice.constants.Constants.WORDS;
 
