@@ -1,4 +1,4 @@
-package com.teb.practice.model;
+package com.teb.practice.bean;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,11 +7,11 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
-// @Getter - invokes getters for all fields in the class
-// @Setter - invokes setters for all fields in the class
-// @NoArgsConstructor - invokes default constructor
-// @AllArgsConstructor - invokes parameterised constructor for all fields
-// @RequiredArgsConstructor - invokes constructor for all non-null fields
+// @Getter invokes getters for all fields in the class
+// @Setter invokes setters for all fields in the class
+// @NoArgsConstructor invokes default constructor
+// @AllArgsConstructor invokes parameterised constructor for all fields
+// @RequiredArgsConstructor invokes constructor for all non-null fields
 @Getter
 @Setter
 @NoArgsConstructor

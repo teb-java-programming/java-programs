@@ -10,12 +10,18 @@
         <version>1.0</version>
     </parent>
 
-    <artifactId>java-lombok-programs</artifactId>
+    <artifactId>java-mapstruct-programs</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>mapstruct-basic</module>
+        <module>mapstruct-spring</module>
+    </modules>
 
     <dependencies>
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
         </dependency>
     </dependencies>
 </project>

@@ -6,20 +6,24 @@
 
     <groupId>com.teb.practice</groupId>
     <artifactId>java-programs</artifactId>
-    <version>1.0.0</version>
+    <version>1.0</version>
     <packaging>pom</packaging>
 
     <modules>
         <module>java-basic-programs</module>
-        <module>java-lombok-programs</module>
         <module>java-collection-stream-programs</module>
         <module>java-hacker-rank-solution-programs</module>
+        <module>java-lombok-programs</module>
+        <module>java-mapstruct-programs</module>
     </modules>
 
     <properties>
         <java.version>23</java.version>
         <maven.version>3.15.0</maven.version>
+        <springboot.version>4.1.0-M2</springboot.version>
+        <springcontext.version>7.0.6</springcontext.version>
         <lombok.version>1.18.42</lombok.version>
+        <mapstruct.version>1.6.3</mapstruct.version>
         <pitest.version>1.22.1</pitest.version>
         <commons.lang.version>3.19.0</commons.lang.version>
         <commons.collections.version>4.5.0</commons.collections.version>
@@ -27,13 +31,35 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${springcontext.version}</version>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${springboot.version}</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
-            <scope>provided</scope>
-        </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
@@ -106,6 +132,11 @@
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
                             <version>${lombok.version}</version>
+                        </path>
+                        <path>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>1.6.3</version>
                         </path>
                     </annotationProcessorPaths>
                 </configuration>

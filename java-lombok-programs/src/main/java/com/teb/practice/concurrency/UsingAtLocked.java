@@ -16,7 +16,7 @@ public class UsingAtLocked {
     int counter = 0;
     double balance = 0;
 
-    // @Locked - granular locks allowing individual lock on a method
+    // @Locked triggers granular locks allowing individual lock on a method
     @Locked("depositLock")
     void deposit(double amount) {
 
@@ -25,7 +25,7 @@ public class UsingAtLocked {
         out.println(currentThread().getName() + " Balance: £" + balance);
     }
 
-    // @SneakyThrows - invokes checked exceptions without explicit try-catch
+    // @SneakyThrows invokes checked exceptions without explicit try-catch
     @SneakyThrows
     @Locked("statementLock")
     void printStatement() {

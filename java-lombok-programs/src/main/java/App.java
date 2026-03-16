@@ -1,24 +1,24 @@
 import static java.lang.System.in;
 import static java.lang.System.out;
 
-import com.teb.practice.model.Author;
-import com.teb.practice.model.Book;
-import com.teb.practice.model.BookClub;
-import com.teb.practice.model.Series;
-import com.teb.practice.model.Volunteer;
+import com.teb.practice.bean.Author;
+import com.teb.practice.bean.Book;
+import com.teb.practice.bean.BookClub;
+import com.teb.practice.bean.Series;
+import com.teb.practice.bean.Volunteer;
 
 import lombok.Cleanup;
 import lombok.extern.java.Log;
 
 import java.util.Scanner;
 
-// @Log - invokes instance of Java Logger class
+// @Log invokes an instance of Java Logger class
 @Log
 public class App {
 
     public static void main(String[] args) {
 
-        // @Cleanup - invokes the close method for relevant instance objects
+        // @Cleanup invokes the close method for relevant instance objects
         @Cleanup Scanner scan = new Scanner(in);
 
         Author author = new Author("A16");

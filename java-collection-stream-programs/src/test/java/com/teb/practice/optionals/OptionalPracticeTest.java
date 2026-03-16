@@ -13,7 +13,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
-public class OptionalPracticeTest {
+class OptionalPracticeTest {
 
     private static final List<String> RANDOM_WORDS = WORDS.subList(300, 310);
 

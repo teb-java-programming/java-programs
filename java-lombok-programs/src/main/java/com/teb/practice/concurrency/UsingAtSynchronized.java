@@ -12,7 +12,7 @@ public class UsingAtSynchronized {
     int counter = 0;
     double balance = 0;
 
-    // @Synchronized - the methods share a lock and are run sequentially
+    // @Synchronized makes the methods share a lock and are run sequentially
     @Synchronized
     void deposit(double amount) {
 
@@ -21,7 +21,7 @@ public class UsingAtSynchronized {
         out.println(currentThread().getName() + " Balance: £" + balance);
     }
 
-    // @SneakyThrows - invokes checked exceptions without explicit try-catch
+    // @SneakyThrows invokes checked exceptions without explicit try-catch
     @SneakyThrows
     @Synchronized
     void printStatement() {

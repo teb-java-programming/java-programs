@@ -4,19 +4,13 @@
 
 ### Basic Programs (java-basic-programs)
 
-The module consists of basic Java programs starting from printing a simple "Hello World".
-
-### Lombok Programs (java-lombok-programs)
-
-The module demonstrates the use of Lombok annotations to replace explicit Getters, Setters, and more.
-
 ### Collection Programs (java-collection-stream-programs)
-
-The module demonstrates the use of Collection classes, and using Streams to manipulate the data.
 
 ### Hacker Rank Solution Programs (java-hacker-rank-solution-programs)
 
-The module records solutions from the HackerRank website.
+### Lombok Programs (java-lombok-programs)
+
+### MapStruct Programs (java-mapstruct-programs)
 
 ***
 

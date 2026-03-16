@@ -1,4 +1,4 @@
-package com.teb.practice.model;
+package com.teb.practice.bean;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,6 +8,6 @@ import lombok.With;
 @AllArgsConstructor
 public class Series {
     Book book;
-    // @With - allows cloning of an object and with one changed field
+    // @With allows cloning of an object and with one changed field
     @With private int edition;
 }
