@@ -1,13 +1,11 @@
 package com.teb.practice.arrays;
 
-import static java.lang.System.out;
-
 import java.util.Arrays;
 import java.util.stream.IntStream;
 
 public class EvenArrayIndex {
 
-    private static int getEvenIndex(int[] inputArray) {
+    protected int getEvenIndex(int[] inputArray) {
 
         int leftOfIndex = 0;
         int rightOfIndex = 0;
@@ -19,14 +17,13 @@ public class EvenArrayIndex {
             if (leftOfIndex == rightOfIndex) return i;
 
             leftOfIndex += inputArray[i];
-            // Resetting sum of values on right
             rightOfIndex = 0;
         }
 
         return -1;
     }
 
-    private static int getEvenIndexUsingStream(int[] inputArray) {
+    protected int getEvenIndexUsingStream(int[] inputArray) {
 
         for (int i = 0; i < inputArray.length; i++) {
             int rightOfIndexSum =
@@ -40,12 +37,17 @@ public class EvenArrayIndex {
         return -1;
     }
 
-    public static void main(String[] args) {
+    protected int getEvenIndexOptimized(int[] inputArray) {
 
-        int[] arrayOne = {1, 100, 50, -51, 1, 1};
-        int[] arrayTwo = {20, 10, -80, 100, 10, 15, 35};
+        int totalIndexSum = IntStream.of(inputArray).sum();
+        int leftOfIndexSum = 0;
 
-        out.println("Result index: " + getEvenIndex(arrayOne));
-        out.println("Result index (using Stream): " + getEvenIndexUsingStream(arrayTwo));
+        for (int i = 0; i < inputArray.length; i++) {
+            int rightOfIndexSum = totalIndexSum - leftOfIndexSum - inputArray[i];
+            if (leftOfIndexSum == rightOfIndexSum) return i;
+            leftOfIndexSum += inputArray[i];
+        }
+
+        return -1;
     }
 }

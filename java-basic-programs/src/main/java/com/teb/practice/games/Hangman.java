@@ -1,145 +1,220 @@
 package com.teb.practice.games;
 
-import static com.teb.practice.constants.Constants.BLANK;
-import static com.teb.practice.constants.Constants.SCAN;
 import static com.teb.practice.constants.Constants.WORDS;
 
-import static java.lang.System.exit;
-import static java.lang.System.out;
+import static java.lang.Character.toUpperCase;
+import static java.lang.Math.random;
+import static java.util.Objects.isNull;
 
+import java.io.PrintStream;
 import java.util.List;
-import java.util.Random;
 
 public class Hangman {
 
-    private static final Random RANDOM = new Random();
     private static final String DISPLAY_MESSAGE = "%nYour word is: %s%n";
 
-    private static int errorCounter = 0;
-    private static String completeWord = BLANK;
-    private static String displayedWord = BLANK;
+    private int errorCounter;
+    private String completeWord;
+    private String displayedWord;
 
-    public static void main(String[] args) {
+    public Hangman() {}
 
-        out.printf("Welcome to the Hangman game!%n%n");
+    public Hangman(String testWord) {
+        this.completeWord = testWord.toUpperCase();
+        this.displayedWord = "_".repeat(testWord.length());
+        this.errorCounter = 0;
+    }
+
+    public void playHangman() {
+
+        this.errorCounter = 0;
+
+        if (isNull(this.completeWord)) {
+            generateWord();
+        } else {
+            this.displayedWord = "_".repeat(this.completeWord.length());
+        }
+    }
+
+    public String getDisplayedWord() {
+
+        return displayedWord;
+    }
+
+    public String getCompleteWord() {
+
+        return completeWord;
+    }
+
+    public int getErrorCounter() {
+
+        return errorCounter;
+    }
+
+    public boolean guess(char input) {
+
+        input = toUpperCase(input);
+        boolean correct = false;
+
+        for (int i = 0; i < completeWord.length(); i++) {
+            char letter = completeWord.charAt(i);
+            if (input == letter && displayedWord.charAt(i) == '_') {
+                StringBuilder sb = new StringBuilder(displayedWord);
+
+                sb.setCharAt(i, letter);
+                displayedWord = sb.toString();
+                correct = true;
+            }
+        }
+
+        // Increment errorCounter only if the guess does not match unrevealed letters
+        if (!correct) {
+            boolean alreadyRevealed = displayedWord.indexOf(input) != -1;
+
+            if (!alreadyRevealed) {
+                errorCounter++;
+            }
+        }
+
+        return correct;
+    }
+
+    public boolean isGameWon() {
+
+        return completeWord.equals(displayedWord);
+    }
+
+    public boolean isGameLost() {
+
+        return errorCounter >= 9;
+    }
+
+    public String renderHangman() {
+
+        return switch (errorCounter) {
+            case 0 ->
+                    """
+                    |
+                    |
+                    |
+                    |
+                    |
+                    |____________""";
+            case 1 ->
+                    """
+                    |________
+                    |
+                    |
+                    |
+                    |
+                    |____________""";
+            case 2 ->
+                    """
+                    |________
+                    |    |
+                    |
+                    |
+                    |
+                    |____________""";
+            case 3 ->
+                    """
+                    |________
+                    |    |
+                    |    O
+                    |
+                    |
+                    |____________""";
+            case 4 ->
+                    """
+                    |________
+                    |    |
+                    |    O
+                    |    |
+                    |
+                    |____________""";
+            case 5 ->
+                    """
+                    |________
+                    |    |
+                    |  _ O
+                    |    |
+                    |
+                    |____________""";
+            case 6 ->
+                    """
+                    |________
+                    |    |
+                    |  _ O _
+                    |    |
+                    |
+                    |____________""";
+            case 7 ->
+                    """
+                    |________
+                    |    |
+                    |  _ O _
+                    |    |
+                    |   /
+                    |____________""";
+            case 8 ->
+                    """
+                    |________
+                    |    |
+                    |  _ O _
+                    |    |
+                    |   / \\
+                    |____________""";
+            case 9 ->
+                    """
+                    |________
+                    |    |
+                    |    O
+                    |   /|\\
+                    |   / \\
+                    |____________""";
+            default -> throw new IllegalStateException("Invalid counter: " + errorCounter);
+        };
+    }
+
+    private void generateWord() {
+
+        List<String> words = WORDS;
+
+        this.completeWord = words.get((int) (random() * words.size())).toUpperCase();
+        this.displayedWord = "_".repeat(completeWord.length());
+    }
+
+    protected void runGame(List<Character> guesses, PrintStream out) {
+
+        out.printf("Welcome to Hangman!%n%n");
         out.printf(
                 "Rules:%n"
                         + "A random word will appear on your screen that can have 5-8 blank characters.%n"
                         + "You have 9 attempts to guess the word and save the man from hanging.%n%n");
-        printPattern(errorCounter);
+
         playHangman();
 
-        while (true) {
-            out.printf("%nDo you want to play again? (y/n): ");
-            String option = SCAN.next();
-            if (option.equals("y")) {
-                errorCounter = 0;
-                playHangman();
-            } else if (option.equals("n")) {
-                out.printf("Thank you for playing!%n");
-                break;
-            } else {
-                exit(0);
-            }
-        }
-    }
+        for (char guessChar : guesses) {
+            boolean correct = guess(guessChar);
 
-    private static void playHangman() {
-
-        out.printf(DISPLAY_MESSAGE, generateWord());
-        boolean verifyAlphabet = verifyAlphabet();
-
-        while (!completeWord.equals(displayedWord)) {
-            if (verifyAlphabet) {
-                out.printf("Correct guess!%n");
-                out.printf(DISPLAY_MESSAGE, displayedWord);
-                out.printf("Error counter: %d%n", errorCounter);
-
-                verifyAlphabet = verifyAlphabet();
-            } else if (errorCounter < 9) {
-                ++errorCounter;
-                printPattern(errorCounter);
-
-                out.printf("Wrong guess!%n");
-                out.printf(DISPLAY_MESSAGE, displayedWord);
-                out.printf("Error counter: %d%n", errorCounter);
-
-                if (errorCounter == 9) {
-                    out.printf("%nGame over! You lost!%n");
-                    out.printf("Your word was: %s%n", completeWord);
-                    exit(0);
-                }
-
-                verifyAlphabet = verifyAlphabet();
-            }
-        }
-    }
-
-    private static boolean verifyAlphabet() {
-
-        out.printf("%nSelect an alphabet: ");
-        String input = SCAN.next();
-        boolean validAlphabet = false;
-        for (int i = 0; i < completeWord.length(); i++) {
-            char letter = completeWord.charAt(i);
-            if (input.equalsIgnoreCase(String.valueOf(letter)) && displayedWord.charAt(i) == '_') {
-                StringBuilder stringBuilder = new StringBuilder(displayedWord);
-                stringBuilder.setCharAt(i, letter);
-                displayedWord = stringBuilder.toString();
-                validAlphabet = true;
-            }
-        }
-        if (completeWord.equals(displayedWord)) {
+            out.println(renderHangman());
             out.printf(DISPLAY_MESSAGE, displayedWord);
-            out.printf("%nGame over! You won!");
-        }
-        return validAlphabet;
-    }
+            out.printf("Error counter: %d%n", errorCounter);
 
-    private static String generateWord() {
+            out.println(correct ? "Correct guess!" : "Wrong guess!");
 
-        List<String> wordGenerator = WORDS;
-        completeWord = wordGenerator.get(RANDOM.nextInt(wordGenerator.size())).toUpperCase();
+            if (isGameWon()) {
+                out.printf(DISPLAY_MESSAGE, displayedWord);
+                out.println("Game over! You won!");
+                break;
+            }
 
-        displayedWord = "_".repeat(completeWord.length());
-        return displayedWord;
-    }
-
-    private static void printPattern(int errorCounter) {
-
-        switch (errorCounter) {
-            case 0:
-                out.printf("|%n|%n|%n|%n|%n|____________");
+            if (isGameLost()) {
+                out.println(renderHangman());
+                out.println("Game over! You lost!");
+                out.printf("Your word was: %s%n", completeWord);
                 break;
-            case 1:
-                out.printf("|________%n|%n|%n|%n|%n|____________%n");
-                break;
-            case 2:
-                out.printf("|________%n|\t|%n|%n|%n|%n|____________%n");
-                break;
-            case 3:
-                out.printf("|________%n|\t|%n|\tO%n|%n|%n|____________%n");
-                break;
-            case 4:
-                out.printf("|________%n|\t|%n|\tO%n|\t|%n|%n|____________%n");
-                break;
-            case 5:
-                out.printf("|________%n|\t  |%n|\t_ O%n|\t  |%n|%n|____________%n");
-                break;
-            case 6:
-                out.printf("|________%n|\t  |%n|\t_ O _%n|\t  |%n|%n|____________%n");
-                break;
-            case 7:
-                out.printf("|________%n|\t  |%n|\t_ O _%n|\t  |%n|\t /%n|____________%n");
-                break;
-            case 8:
-                out.printf("|________%n|\t  |%n|\t_ O _%n|\t  |%n|\t / \\%n|____________%n");
-                break;
-            case 9:
-                out.printf("|________%n|\t  |%n|\t  O%n|\t /|\\%n|\t / \\%n|____________%n");
-                break;
-            default:
-                break;
+            }
         }
     }
 }

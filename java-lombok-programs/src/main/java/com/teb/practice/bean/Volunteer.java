@@ -15,7 +15,7 @@ import lombok.Singular;
 @Setter
 public class Volunteer {
     private String volunteerName;
-    private int age;
+    private int volunteerAge;
     // @Builder.Default enables assigning a default value to a field accessible by Lombok
     // constructors
     @Builder.Default private LocalDateTime signupDate = now();
