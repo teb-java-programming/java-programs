@@ -7,6 +7,7 @@ import static java.lang.Double.parseDouble;
 import static java.lang.System.out;
 import static java.math.BigDecimal.valueOf;
 import static java.math.RoundingMode.HALF_UP;
+import static java.util.Objects.isNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -86,7 +87,7 @@ public class Calculator {
         SCAN.nextLine();
         input = SCAN.nextLine();
 
-        if (input == null || input.trim().isEmpty()) {
+        if (isNull(input) || input.trim().isEmpty()) {
             throw new IllegalArgumentException("Empty expression");
         }
 

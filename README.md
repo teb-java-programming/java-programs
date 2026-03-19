@@ -2,15 +2,15 @@
 
 ## Modules
 
-### Basic Programs (java-basic-programs)
+#### Basic Programs (java-basic-programs)
 
-### Collection Programs (java-collection-stream-programs)
+#### Collection Programs (java-collection-stream-programs)
 
-### Hacker Rank Solution Programs (java-hacker-rank-solution-programs)
+#### Hacker Rank Solution Programs (java-hacker-rank-solution-programs)
 
-### Lombok Programs (java-lombok-programs)
+#### Lombok Programs (java-lombok-programs)
 
-### MapStruct Programs (java-mapstruct-programs)
+#### MapStruct Programs (java-mapstruct-programs)
 
 ***
 
