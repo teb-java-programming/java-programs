@@ -185,8 +185,8 @@ class HangmanTest {
         field.setAccessible(true);
         field.setInt(hangman, 16);
 
-        IllegalStateException exception =
+        IllegalStateException e =
                 assertThrows(IllegalStateException.class, () -> hangman.renderHangman());
-        assertTrue(exception.getMessage().contains("Invalid counter"));
+        assertTrue(e.getMessage().contains("Invalid counter"));
     }
 }

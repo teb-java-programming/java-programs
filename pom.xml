@@ -15,6 +15,7 @@
         <module>java-hacker-rank-solution-programs</module>
         <module>java-lombok-programs</module>
         <module>java-mapstruct-programs</module>
+        <module>java-security-programs</module>
     </modules>
 
     <properties>
@@ -28,6 +29,8 @@
         <commons.lang.version>3.19.0</commons.lang.version>
         <commons.collections.version>4.5.0</commons.collections.version>
         <junit.version>6.0.2</junit.version>
+        <mockito.version>5.23.0</mockito.version>
+        <slf4j.version>2.0.17</slf4j.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -56,6 +59,12 @@
                 <version>${springboot.version}</version>
                 <scope>test</scope>
             </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+                <scope>compile</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -74,6 +83,18 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
             <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>${mockito.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <version>${mockito.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -160,6 +181,7 @@
                         <configuration>
                             <excludes>
                                 <exclude>com/teb/practice/constants/*</exclude>
+                                <exclude>com/teb/practice/*/runners/*</exclude>
                             </excludes>
                         </configuration>
                     </execution>
@@ -182,6 +204,7 @@
                                     </limits>
                                     <excludes>
                                         <exclude>com/teb/practice/constants/*</exclude>
+                                        <exclude>com/teb/practice/*/runners/*</exclude>
                                     </excludes>
                                 </rule>
                             </rules>
