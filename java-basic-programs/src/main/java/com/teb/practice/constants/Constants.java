@@ -2,11 +2,8 @@ package com.teb.practice.constants;
 
 import static java.lang.System.in;
 import static java.util.List.of;
-import static java.util.Map.entry;
-import static java.util.Map.ofEntries;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
 
 public class Constants {
@@ -138,37 +135,4 @@ public class Constants {
 
             "zebra", "zonal", "zombie", "zeroes"
     );
-
-    public static final Map<String, Integer> UNITS_MAP =
-            ofEntries(
-                    entry("one", 1),
-                    entry("two", 2),
-                    entry("three", 3),
-                    entry("four", 4),
-                    entry("five", 5),
-                    entry("six", 6),
-                    entry("seven", 7),
-                    entry("eight", 8),
-                    entry("nine", 9),
-                    entry("ten", 10),
-                    entry("eleven", 11),
-                    entry("twelve", 12),
-                    entry("thirteen", 13),
-                    entry("fourteen", 14),
-                    entry("fifteen", 15),
-                    entry("sixteen", 16),
-                    entry("seventeen", 17),
-                    entry("eighteen", 18),
-                    entry("nineteen", 19));
-
-    public static final Map<String, Integer> TENS_MAP =
-            ofEntries(
-                    entry("twenty", 20),
-                    entry("thirty", 30),
-                    entry("forty", 40),
-                    entry("fifty", 50),
-                    entry("sixty", 60),
-                    entry("seventy", 70),
-                    entry("eighty", 80),
-                    entry("ninety", 90));
 }

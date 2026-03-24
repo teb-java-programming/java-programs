@@ -90,7 +90,7 @@ public class TicTacToe {
     public void printDrawMessage(PrintStream out) {
 
         if (!hasWinner()) {
-            out.println("Game ended in a draw.");
+            out.println("Game ended in a draw");
         }
     }
 

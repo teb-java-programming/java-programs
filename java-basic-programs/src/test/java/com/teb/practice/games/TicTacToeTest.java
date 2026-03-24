@@ -15,7 +15,10 @@ import java.io.PrintStream;
 
 public class TicTacToeTest {
 
+    private static final String DRAW_MESSAGE = "Game ended in a draw";
+
     private final ByteArrayOutputStream stream = new ByteArrayOutputStream();
+
     private TicTacToe game;
 
     @BeforeEach
@@ -98,9 +101,15 @@ public class TicTacToeTest {
     void testDrawGameWithOutput() {
 
         String[][] moves = {
-            {"X", "0", "0"}, {"O", "0", "1"}, {"X", "0", "2"},
-            {"X", "1", "0"}, {"O", "1", "1"}, {"O", "1", "2"},
-            {"O", "2", "0"}, {"X", "2", "1"}, {"X", "2", "2"}
+            {"X", "0", "0"},
+            {"O", "0", "1"},
+            {"X", "0", "2"},
+            {"X", "1", "0"},
+            {"O", "1", "1"},
+            {"O", "1", "2"},
+            {"O", "2", "0"},
+            {"X", "2", "1"},
+            {"X", "2", "2"}
         };
 
         game.playMovesWithOutput(moves, new PrintStream(stream));
@@ -108,7 +117,7 @@ public class TicTacToeTest {
         String output = stream.toString();
 
         assertFalse(game.hasWinner());
-        assertTrue(output.contains("Game ended in a draw."));
+        assertTrue(output.contains(DRAW_MESSAGE));
         assertTrue(output.contains("X") && output.contains("O"));
         assertFalse(output.contains("Congratulations!"));
     }
@@ -136,7 +145,7 @@ public class TicTacToeTest {
 
         assertTrue(output.contains("The cell is already occupied, please select a different cell"));
         assertTrue(output.contains("Congratulations! The winner is: O"));
-        assertFalse(output.contains("Game ended in a draw."));
+        assertFalse(output.contains(DRAW_MESSAGE));
     }
 
     @Test
@@ -148,6 +157,6 @@ public class TicTacToeTest {
 
         game.printDrawMessage(new PrintStream(stream));
 
-        assertFalse(stream.toString().contains("Game ended in a draw."));
+        assertFalse(stream.toString().contains(DRAW_MESSAGE));
     }
 }

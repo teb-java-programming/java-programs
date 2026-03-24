@@ -1,70 +1,57 @@
 package com.teb.practice.utility;
 
+import static java.lang.System.getProperty;
 import static java.lang.System.out;
-
-import java.lang.management.ManagementFactory;
-import java.lang.management.MemoryMXBean;
+import static java.lang.Thread.currentThread;
+import static java.lang.Thread.sleep;
+import static java.time.LocalDateTime.now;
+import static java.time.format.DateTimeFormatter.ofPattern;
 
 public class HandleJVMSpace {
 
-    private static void getRuntimeData() {
-
-        // Total memory available to JVM
-        out.println(Runtime.getRuntime().totalMemory());
-
-        // Maximum memory JVM tries to use
-        out.println(Runtime.getRuntime().maxMemory());
-
-        // Free memory available to JVM
-        out.println(Runtime.getRuntime().freeMemory());
-
-        // Garbage collection
-        Runtime.getRuntime().gc();
-    }
-
-    private static void getMXHeapData() {
-
-        MemoryMXBean memoryBean = ManagementFactory.getMemoryMXBean();
-
-        // Total memory available to JVM
-        out.println(memoryBean.getHeapMemoryUsage().getInit());
-
-        // Maximum memory JVM tries to use
-        out.println(memoryBean.getHeapMemoryUsage().getMax());
-
-        // Guaranteed memory available to JVM
-        out.println(memoryBean.getHeapMemoryUsage().getCommitted());
-
-        // Memory used by JVM
-        out.println(memoryBean.getHeapMemoryUsage().getUsed());
-    }
-
-    private static void getMXNonHeapData() {
-
-        MemoryMXBean memoryBean = ManagementFactory.getMemoryMXBean();
-
-        // Total memory available to JVM
-        out.println(memoryBean.getNonHeapMemoryUsage().getInit());
-
-        // Maximum memory JVM tries to use
-        out.println(memoryBean.getNonHeapMemoryUsage().getMax());
-
-        // Guaranteed memory available to JVM
-        out.println(memoryBean.getNonHeapMemoryUsage().getCommitted());
-
-        // Memory used by JVM
-        out.println(memoryBean.getNonHeapMemoryUsage().getUsed());
-    }
-
     public static void main(String[] args) {
 
-        out.println("\nJVM heap space details using Runtime class");
-        getRuntimeData();
+        JVMMemoryService service = new JVMMemoryService();
 
-        out.println("\nJVM heap space details using MemoryMXBean class");
-        getMXHeapData();
+        while (!currentThread().isInterrupted()) {
+            clearConsole();
 
-        out.println("\nJVM non-heap space details using MemoryMXBean class");
-        getMXNonHeapData();
+            out.println("\n\n==============================");
+            out.println("==== JVM MEMORY DASHBOARD ====");
+            out.println("==== " + now().format(ofPattern("dd-MMM-yyyy HH:mm:ss")) + " ====");
+
+            out.println("\n---- HEAP ----");
+            out.println(service.getHeapStats());
+
+            out.println("\n---- NON-HEAP ----");
+            out.println(service.getNonHeapStats());
+
+            pause();
+        }
+    }
+
+    private static void pause() {
+
+        try {
+            sleep(2000);
+        } catch (InterruptedException e) {
+            currentThread().interrupt();
+        }
+    }
+
+    private static void clearConsole() {
+
+        try {
+            String os = getProperty("os.name");
+
+            if (os.contains("Windows")) {
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            } else {
+                out.print("\033[H\033[2J");
+                out.flush();
+            }
+        } catch (Exception ignored) {
+            out.println("\n".repeat(50));
+        }
     }
 }

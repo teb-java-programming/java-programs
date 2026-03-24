@@ -27,6 +27,6 @@ public class UsingAtSynchronized {
     void printStatement() {
 
         sleep(200);
-        out.println(currentThread().getName() + " Statement printed.");
+        out.println(currentThread().getName() + " Statement printed");
     }
 }

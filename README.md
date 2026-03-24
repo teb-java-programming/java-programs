@@ -6,7 +6,7 @@
 
 #### Collection Programs (java-collection-stream-programs)
 
-#### Hacker Rank Solution Programs (java-hacker-rank-solution-programs)
+#### Java Solution Programs (java-code-solution-programs)
 
 #### Lombok Programs (java-lombok-programs)
 
@@ -22,6 +22,7 @@ The project requires the following software and plugins to be installed.
 
 #### Software
 
+- IntelliJ or Eclipse
 - Java 8 and above
 - Maven
 - Git

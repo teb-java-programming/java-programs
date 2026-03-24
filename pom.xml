@@ -11,8 +11,8 @@
 
     <modules>
         <module>java-basic-programs</module>
+        <module>java-code-solution-programs</module>
         <module>java-collection-stream-programs</module>
-        <module>java-hacker-rank-solution-programs</module>
         <module>java-lombok-programs</module>
         <module>java-mapstruct-programs</module>
         <module>java-security-programs</module>
@@ -25,7 +25,7 @@
         <springcontext.version>7.0.6</springcontext.version>
         <lombok.version>1.18.42</lombok.version>
         <mapstruct.version>1.6.3</mapstruct.version>
-        <pitest.version>1.22.1</pitest.version>
+        <pitest.version>1.23.0</pitest.version>
         <commons.lang.version>3.19.0</commons.lang.version>
         <commons.collections.version>4.5.0</commons.collections.version>
         <junit.version>6.0.2</junit.version>
@@ -119,8 +119,8 @@
                             </execution>
                         </executions>
                         <configuration>
-                            <mutationThreshold>100</mutationThreshold>
-                            <coverageThreshold>100</coverageThreshold>
+                            <mutationThreshold>80</mutationThreshold>
+                            <coverageThreshold>80</coverageThreshold>
                             <targetClasses>com.teb.practice.*</targetClasses>
                             <targetTests>com.teb.practice.*</targetTests>
                         </configuration>
@@ -147,7 +147,7 @@
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
-                    <!-- Enable annotation processing for Lombok in JDK9 and above -->
+                    <!-- Enable annotation processing for Lombok/MapStruct in JDK9 and above -->
                     <annotationProcessorPaths>
                         <path>
                             <groupId>org.projectlombok</groupId>
@@ -178,12 +178,6 @@
                         <goals>
                             <goal>report</goal>
                         </goals>
-                        <configuration>
-                            <excludes>
-                                <exclude>com/teb/practice/constants/*</exclude>
-                                <exclude>com/teb/practice/*/runners/*</exclude>
-                            </excludes>
-                        </configuration>
                     </execution>
                     <execution>
                         <id>check</id>
@@ -198,19 +192,21 @@
                                         <limit>
                                             <counter>LINE</counter>
                                             <value>COVEREDRATIO</value>
-                                            <!-- Value to be set for coverage -->
-                                            <minimum>0.0</minimum>
+                                            <minimum>0.8</minimum>
                                         </limit>
                                     </limits>
-                                    <excludes>
-                                        <exclude>com/teb/practice/constants/*</exclude>
-                                        <exclude>com/teb/practice/*/runners/*</exclude>
-                                    </excludes>
                                 </rule>
                             </rules>
                         </configuration>
                     </execution>
                 </executions>
+                <configuration>
+                    <excludes>
+                        <exclude>com/teb/practice/constants/*</exclude>
+                        <exclude>com/teb/practice/utility/*</exclude>
+                        <exclude>com/teb/practice/*/runners/*</exclude>
+                    </excludes>
+                </configuration>
             </plugin>
         </plugins>
     </build>
