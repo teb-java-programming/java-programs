@@ -7,15 +7,11 @@ package com.teb.practice;
  * If the final string is empty, return Empty String
  */
 
-import static com.teb.practice.constants.Constants.SCAN;
-
 import static org.apache.commons.lang3.StringUtils.isEmpty;
-
-import static java.lang.System.out;
 
 public class SuperReducedString {
 
-    private static String superReducedString(String input) {
+    protected String reducedString(String input) {
 
         for (int i = 1; i < input.length(); i++) {
             if (input.charAt(i) == input.charAt(i - 1)) {
@@ -23,14 +19,7 @@ public class SuperReducedString {
                 i = 0;
             }
         }
+
         return isEmpty(input) ? "Empty String" : input;
-    }
-
-    public static void main(String[] args) {
-
-        out.print("Enter string input: ");
-        String input = SCAN.next();
-
-        out.println("Reduced string result: " + superReducedString(input));
     }
 }

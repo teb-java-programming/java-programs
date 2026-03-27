@@ -86,7 +86,7 @@ class SudokuValidatorTest {
 
     private final SudokuValidator sudokuValidator = new SudokuValidator();
 
-    static Stream<Object> invalidSudokuEntries() {
+    static Stream<Object> invalidSudokuProvider() {
 
         return Stream.of(
                 BELOW_LIMIT_BOARD,
@@ -104,7 +104,7 @@ class SudokuValidatorTest {
     }
 
     @ParameterizedTest
-    @MethodSource("invalidSudokuEntries")
+    @MethodSource("invalidSudokuProvider")
     void testInvalidSudokuConditions(int[][] inputArray) {
 
         Exception e =

@@ -5,14 +5,11 @@ package com.teb.practice;
  * Given a number, n, determine and print whether it is Prime or Not prime.
  * */
 
-import static com.teb.practice.constants.Constants.SCAN;
-
 import static java.lang.Math.sqrt;
-import static java.lang.System.out;
 
 public class PrimeNotPrime {
 
-    private static boolean isPrime(int input) {
+    protected boolean isPrime(int input) {
 
         if (input < 2) return false;
 
@@ -21,17 +18,5 @@ public class PrimeNotPrime {
         }
 
         return true;
-    }
-
-    public static void main(String[] args) {
-
-        out.print("Enter the limit: ");
-        int limit = SCAN.nextInt();
-
-        out.println("Enter the values:");
-        while (limit-- > 0) {
-            if (isPrime(SCAN.nextInt())) out.println("Prime");
-            else out.println("Not prime");
-        }
     }
 }

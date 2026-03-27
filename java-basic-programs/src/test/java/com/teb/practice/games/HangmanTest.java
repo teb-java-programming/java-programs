@@ -30,14 +30,14 @@ class HangmanTest {
     private final ByteArrayOutputStream stream = new ByteArrayOutputStream();
     private Hangman hangman;
 
-    static Stream<Arguments> gameScenarios() {
+    static Stream<Arguments> gameScenarioProvider() {
 
         return Stream.of(
                 Arguments.of("NOISE", of('I', 'S', 'N', 'O', 'E'), true, false, 0),
                 Arguments.of("ULTIMATE", nCopies(9, 'P'), false, true, 9));
     }
 
-    static Stream<Arguments> gameSimulationScenarios() {
+    static Stream<Arguments> gameSimulationScenarioProvider() {
 
         return Stream.of(
                 Arguments.of(
@@ -106,7 +106,7 @@ class HangmanTest {
     }
 
     @ParameterizedTest
-    @MethodSource("gameScenarios")
+    @MethodSource("gameScenarioProvider")
     void testGameOutcome(
             String word,
             List<Character> guesses,
@@ -127,7 +127,7 @@ class HangmanTest {
     }
 
     @ParameterizedTest
-    @MethodSource("gameSimulationScenarios")
+    @MethodSource("gameSimulationScenarioProvider")
     void testSimulatedRunGame(
             String word,
             List<Character> guesses,

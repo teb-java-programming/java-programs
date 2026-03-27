@@ -12,7 +12,7 @@ class EvenArrayIndexTest {
 
     private final EvenArrayIndex evenArrayIndex = new EvenArrayIndex();
 
-    static Stream<Arguments> evenIndexArrays() {
+    static Stream<Arguments> evenIndexArrayProvider() {
 
         return Stream.of(
                 Arguments.of(new int[] {1, 100, 50, -51, 1, 1}, 1),
@@ -25,7 +25,7 @@ class EvenArrayIndexTest {
     }
 
     @ParameterizedTest
-    @MethodSource("evenIndexArrays")
+    @MethodSource("evenIndexArrayProvider")
     void testEvenIndex(int[] inputArray, int resultIndex) {
 
         assertEquals(resultIndex, evenArrayIndex.findEvenIndex(inputArray));

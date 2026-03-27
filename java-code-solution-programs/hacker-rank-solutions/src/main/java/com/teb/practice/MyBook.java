@@ -13,10 +13,6 @@ package com.teb.practice;
  *  3. Price:, a space, and then the current instance's price.
  */
 
-import static com.teb.practice.constants.Constants.SCAN;
-
-import static java.lang.System.out;
-
 abstract class Book {
 
     String title;
@@ -27,40 +23,21 @@ abstract class Book {
         this.author = author;
     }
 
-    abstract void display();
+    abstract double getPrice();
 }
 
-class MyBook extends Book {
+public class MyBook extends Book {
 
-    int price;
+    double price;
 
-    public MyBook(String title, String author, int price) {
+    public MyBook(String title, String author, double price) {
         super(title, author);
         this.price = price;
     }
 
     @Override
-    void display() {
+    double getPrice() {
 
-        out.println("Title: " + title);
-        out.println("Author: " + author);
-        out.println("Price: " + price);
-    }
-}
-
-public class AbstractClasses {
-
-    public static void main(String[] args) {
-
-        out.println("Enter book details:");
-        out.print("Title: ");
-        String title = SCAN.nextLine();
-        out.print("Author: ");
-        String author = SCAN.nextLine();
-        out.print("Price: ");
-        int price = SCAN.nextInt();
-
-        Book book = new MyBook(title, author, price);
-        book.display();
+        return price;
     }
 }

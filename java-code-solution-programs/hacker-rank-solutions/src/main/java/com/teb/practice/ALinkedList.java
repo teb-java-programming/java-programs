@@ -10,56 +10,56 @@ package com.teb.practice;
  * Once the new node is added, return the reference to the head node.
  */
 
-import static com.teb.practice.constants.Constants.SCAN;
-import static com.teb.practice.constants.Constants.SPACE;
-
-import static java.lang.System.out;
-
-class Node {
-
-    int data;
-    Node next;
-
-    Node(int data) {
-        this.data = data;
-        this.next = null;
-    }
-}
+import java.util.ArrayList;
+import java.util.List;
 
 public class ALinkedList {
 
-    private static Node insert(Node head, int data) {
+    private Node head;
 
-        if (head == null) return new Node(data);
+    protected void insert(List<Double> inputList) {
 
-        Node current = head;
-        while (current.next != null) {
-            current = current.next;
+        if (inputList == null || inputList.isEmpty()) return;
+
+        for (double data : inputList) {
+            Node node = new Node(data * 0.12);
+
+            if (head == null) {
+                head = node;
+                continue;
+            }
+
+            Node current = head;
+
+            while (current.next != null) {
+                current = current.next;
+            }
+
+            current.next = node;
         }
-        current.next = new Node(data);
-
-        return head;
     }
 
-    private static void display(Node head) {
+    protected List<Double> display() {
 
+        List<Double> resultList = new ArrayList<>();
         Node current = head;
+
         while (current != null) {
-            out.print(current.data + SPACE);
+            resultList.add(current.data);
             current = current.next;
         }
+
+        return resultList;
     }
 
-    public static void main(String[] args) {
+    private static class Node {
 
-        Node head = null;
-        int limit = SCAN.nextInt();
+        final double data;
+        Node next;
 
-        while (limit-- > 0) {
-            int element = SCAN.nextInt();
-            head = insert(head, element);
+        Node(double data) {
+            this.data = data;
+            this.next = null;
         }
-
-        display(head);
     }
 }

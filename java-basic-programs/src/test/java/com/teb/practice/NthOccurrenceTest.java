@@ -15,6 +15,7 @@ class NthOccurrenceTest {
     private final NthOccurrence nthOccurrence = new NthOccurrence();
 
     static Stream<Arguments> searchProvider() {
+
         return Stream.of(
                 Arguments.of("o", 4, 20),
                 Arguments.of("i", 4, 27),

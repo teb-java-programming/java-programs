@@ -34,7 +34,7 @@ class MapperTest {
     private static final String EMPLOYEE_START_DATE = "16-04-2024 10:00:00";
     private static final String PROJECT_START_DATE = "08-08-2024 08:00:00";
 
-    static Stream<Arguments> employeeStream() {
+    static Stream<Arguments> employeeProvider() {
 
         return Stream.of(
                 Arguments.of("P001", "E001", new Employee(), null),
@@ -46,7 +46,7 @@ class MapperTest {
 
     @SneakyThrows
     @ParameterizedTest
-    @MethodSource("employeeStream")
+    @MethodSource("employeeProvider")
     void testMapEmployeeToEmployeeDto(
             String projectId, String employeeId, Employee employee, EmployeeType employeeType) {
 

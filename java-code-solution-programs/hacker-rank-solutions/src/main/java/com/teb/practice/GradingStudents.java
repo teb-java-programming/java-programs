@@ -9,16 +9,12 @@ package com.teb.practice;
  * If the value of grade is less than 38, no rounding occurs as the result will still be a failing grade.
  */
 
-import static com.teb.practice.constants.Constants.SCAN;
-
-import static java.lang.System.out;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class GradingStudents {
 
-    static List<Integer> gradingStudents(List<Integer> grades) {
+    protected List<Integer> grades(List<Integer> grades) {
 
         List<Integer> finalGrades = new ArrayList<>();
 
@@ -32,19 +28,5 @@ public class GradingStudents {
         }
 
         return finalGrades;
-    }
-
-    public static void main(String[] args) {
-
-        List<Integer> inputList = new ArrayList<>();
-
-        out.print("Enter the number of students: ");
-        int studentCount = SCAN.nextInt();
-
-        while (studentCount-- > 0) {
-            inputList.add(SCAN.nextInt());
-        }
-
-        out.println("Final grades: " + gradingStudents(inputList));
     }
 }

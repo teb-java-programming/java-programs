@@ -8,11 +8,6 @@ package com.teb.practice;
  * For each array, perform a number of right circular rotations and return the values of the elements at the given indices.
  */
 
-import static com.teb.practice.constants.Constants.SCAN;
-import static com.teb.practice.constants.Constants.SPACE;
-
-import static java.lang.System.out;
-import static java.util.Arrays.stream;
 import static java.util.Collections.rotate;
 
 import java.util.ArrayList;
@@ -20,34 +15,15 @@ import java.util.List;
 
 public class CircularArrayRotation {
 
-    private static List<Integer> circularArrayRotation(
-            List<Integer> inputList, int rotationIndex, List<Integer> queriesList) {
+    protected List<Integer> rotateArray(
+            List<Integer> inputList, List<Integer> queriesList, int rotationIndex) {
 
+        List<Integer> mutableList = new ArrayList<>(inputList);
         List<Integer> result = new ArrayList<>();
 
-        rotate(inputList, rotationIndex);
-        queriesList.forEach(index -> result.add(inputList.get(index)));
+        rotate(mutableList, rotationIndex);
+        queriesList.forEach(index -> result.add(mutableList.get(index)));
 
         return result;
-    }
-
-    public static void main(String[] args) {
-
-        List<Integer> inputList = new ArrayList<>();
-        List<Integer> queriesList = new ArrayList<>();
-
-        out.print("Enter the initial array separated by single space: ");
-        String input = SCAN.nextLine();
-        out.print("Enter the queried index as array separated by single space: ");
-        String queries = SCAN.nextLine();
-        out.print("Enter the number of rotations: ");
-        int index = SCAN.nextInt();
-
-        String[] stringInput = input.split(SPACE);
-        stream(stringInput).forEach(string -> inputList.add(Integer.valueOf(string)));
-        String[] queriesInput = queries.split(SPACE);
-        stream(queriesInput).forEach(string -> queriesList.add(Integer.valueOf(string)));
-
-        out.println("Result: " + circularArrayRotation(inputList, index, queriesList));
     }
 }

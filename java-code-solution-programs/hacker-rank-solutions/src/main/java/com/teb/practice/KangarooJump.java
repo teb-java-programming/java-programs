@@ -9,16 +9,12 @@ package com.teb.practice;
  * If it is possible, return YES, otherwise return NO.
  */
 
-import static com.teb.practice.constants.Constants.SCAN;
-
-import static java.lang.System.out;
-
 public class KangarooJump {
 
     private static final String YES = "YES";
     private static final String NO = "NO";
 
-    private static String kangarooJump(int positionOne, int rateOne, int positionTwo, int rateTwo) {
+    protected String syncJump(int positionOne, int rateOne, int positionTwo, int rateTwo) {
 
         if ((rateOne <= rateTwo && positionOne < positionTwo)
                 || (rateTwo <= rateOne && positionTwo < positionOne)) {
@@ -30,16 +26,5 @@ public class KangarooJump {
         }
 
         return ((positionTwo - positionOne) % (rateOne - rateTwo) == 0) ? YES : NO;
-    }
-
-    public static void main(String[] args) {
-
-        out.println("Enter the numbers:");
-        int positionOne = SCAN.nextInt();
-        int rateOne = SCAN.nextInt();
-        int positionTwo = SCAN.nextInt();
-        int rateTwo = SCAN.nextInt();
-
-        out.println(kangarooJump(positionOne, rateOne, positionTwo, rateTwo));
     }
 }

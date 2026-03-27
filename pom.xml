@@ -123,6 +123,12 @@
                             <coverageThreshold>80</coverageThreshold>
                             <targetClasses>com.teb.practice.*</targetClasses>
                             <targetTests>com.teb.practice.*</targetTests>
+                            <excludedClasses>
+                                <param>com.teb.practice.constants.*</param>
+                                <param>com.teb.practice.utility.*</param>
+                                <param>com.teb.practice.*.runners.*</param>
+                                <param>com.teb.practice.*.*Impl*</param>
+                            </excludedClasses>
                         </configuration>
                         <dependencies>
                             <!-- Required dependency for pitest on JUnit5 -->
@@ -192,7 +198,7 @@
                                         <limit>
                                             <counter>LINE</counter>
                                             <value>COVEREDRATIO</value>
-                                            <minimum>0.8</minimum>
+                                            <minimum>1.0</minimum>
                                         </limit>
                                     </limits>
                                 </rule>
@@ -205,6 +211,7 @@
                         <exclude>com/teb/practice/constants/*</exclude>
                         <exclude>com/teb/practice/utility/*</exclude>
                         <exclude>com/teb/practice/*/runners/*</exclude>
+                        <exclude>com/teb/practice/*/*Impl*</exclude>
                     </excludes>
                 </configuration>
             </plugin>

@@ -6,37 +6,18 @@ package com.teb.practice;
  * If either n or p is negative, then the method must throw an exception with the message: n and p should be non-negative.
  */
 
-import static com.teb.practice.constants.Constants.SCAN;
-
 import static java.lang.Math.pow;
-import static java.lang.System.out;
 
-class Calculator {
-
-    static int power(int n, int p) throws Exception {
-
-        if (n < 0 || p < 0) {
-            throw new Exception("n and p should be non-negative");
-        }
-
-        return (int) pow(n, p);
-    }
-}
+import java.util.InputMismatchException;
 
 public class NegativeNumberException {
 
-    public static void main(String[] args) {
+    protected int power(int n, int p) {
 
-        out.print("Enter limit: ");
-        int limit = SCAN.nextInt();
-
-        out.println("Enter the values separated by single space:");
-        while (limit-- > 0) {
-            try {
-                out.println(Calculator.power(SCAN.nextInt(), SCAN.nextInt()));
-            } catch (Exception e) {
-                out.println(e.getMessage());
-            }
+        if (n < 0 || p < 0) {
+            throw new InputMismatchException("n and p should be non-negative");
         }
+
+        return (int) pow(n, p);
     }
 }

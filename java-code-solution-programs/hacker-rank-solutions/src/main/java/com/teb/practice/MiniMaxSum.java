@@ -5,17 +5,11 @@ package com.teb.practice;
  * Then print the respective minimum and maximum values as a single line of two space-separated long integers.
  */
 
-import static com.teb.practice.constants.Constants.SCAN;
-import static com.teb.practice.constants.Constants.SPACE;
-
-import static java.lang.System.out;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class MiniMaxSum {
 
-    private static void miniMaxSum(List<Integer> inputList) {
+    private long getSum(List<Integer> inputList, boolean flag) {
 
         int size = inputList.size();
         long minimumSum = 0;
@@ -30,18 +24,16 @@ public class MiniMaxSum {
             maximumSum += inputList.get(i);
         }
 
-        out.println(minimumSum + SPACE + maximumSum);
+        return flag ? minimumSum : maximumSum;
     }
 
-    public static void main(String[] args) {
+    protected long minimumSum(List<Integer> inputList) {
 
-        List<Integer> inputList = new ArrayList<>();
+        return getSum(inputList, true);
+    }
 
-        out.println("Enter the five numbers:");
-        for (int i = 0; i < 5; i++) {
-            inputList.add(SCAN.nextInt());
-        }
+    protected long maximumSum(List<Integer> inputList) {
 
-        miniMaxSum(inputList);
+        return getSum(inputList, false);
     }
 }

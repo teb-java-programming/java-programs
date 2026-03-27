@@ -21,7 +21,7 @@ import java.util.logging.Logger;
 
 // @Log invokes an instance of Java Logger class
 @Log
-class BeanTest {
+class BookClubTest {
 
     private static final String LOG_MESSAGE = "Welcome to the book club!";
     private static final String BOOK_ID_ONE = "B512";
@@ -146,7 +146,7 @@ class BeanTest {
     @SneakyThrows
     private Logger getLombokLogger() {
 
-        Field logField = BeanTest.class.getDeclaredField("log");
+        Field logField = BookClubTest.class.getDeclaredField("log");
         logField.setAccessible(true);
 
         return (Logger) logField.get(null);

@@ -9,47 +9,23 @@ package com.teb.practice;
  *    and stores it in the maximumDifference instance variable.
  */
 
-import static com.teb.practice.constants.Constants.SCAN;
-
-import static java.lang.System.out;
 import static java.util.Arrays.stream;
 import static java.util.Collections.max;
 import static java.util.Collections.min;
 
 import java.util.List;
 
-class Difference {
+public class ComputeDifference {
 
     private final int[] elements;
-    public int maximumDifference;
 
-    Difference(int[] elements) {
+    ComputeDifference(int[] elements) {
         this.elements = elements;
     }
 
-    void computeDifference() {
+    protected int compute() {
 
         List<Integer> inputList = stream(elements).boxed().toList();
-        maximumDifference = max(inputList) - min(inputList);
-    }
-}
-
-public class ComputeDifference {
-
-    public static void main(String[] args) {
-
-        out.print("Enter array limit: ");
-        int limit = SCAN.nextInt();
-        int[] inputArray = new int[limit];
-
-        out.println("Enter the " + limit + " values:");
-        for (int i = 0; i < limit; i++) {
-            inputArray[i] = SCAN.nextInt();
-        }
-
-        Difference difference = new Difference(inputArray);
-        difference.computeDifference();
-
-        out.println("Maximum difference: " + difference.maximumDifference);
+        return max(inputList) - min(inputList);
     }
 }

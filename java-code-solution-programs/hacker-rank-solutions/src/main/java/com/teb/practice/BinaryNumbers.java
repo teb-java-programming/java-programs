@@ -7,31 +7,26 @@ package com.teb.practice;
  */
 
 import static com.teb.practice.constants.Constants.BLANK;
-import static com.teb.practice.constants.Constants.SCAN;
 
+import static java.lang.Long.parseLong;
 import static java.lang.Long.toBinaryString;
 import static java.lang.Math.max;
-import static java.lang.System.out;
 
 import java.util.List;
 
 public class BinaryNumbers {
 
-    private static List<String> getStringArray(int input) {
+    protected long calculateSumOfBinarySequence(int input) {
 
-        return List.of(toBinaryString(input).split(BLANK));
-    }
-
-    private static long calculateSumOfBinarySequence(List<String> stringList) {
-
+        List<String> stringList = List.of(toBinaryString(input).split(BLANK));
         long temp = 0;
         long sum = 0;
 
         for (String index : stringList) {
-            long input = Long.parseLong(index);
+            long parsedLong = parseLong(index);
 
-            if (input != 0) {
-                sum += input;
+            if (parsedLong == 1) {
+                sum += parsedLong;
             } else {
                 if (sum != 0) temp = sum;
                 sum = 0;
@@ -39,15 +34,5 @@ public class BinaryNumbers {
         }
 
         return max(temp, sum);
-    }
-
-    public static void main(String[] args) {
-
-        out.print("Enter the base-10 number: ");
-        int input = SCAN.nextInt();
-
-        out.println(
-                "Sum of highest sequence of 1's: "
-                        + calculateSumOfBinarySequence(getStringArray(input)));
     }
 }
