@@ -1,10 +1,11 @@
 package com.teb.practice.concurrency;
 
-import static java.lang.Thread.currentThread;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import static java.lang.Thread.currentThread;
 
 import lombok.SneakyThrows;
 
@@ -40,13 +41,23 @@ class UsingAtSynchronizedTest {
     }
 
     @Test
-    void shouldPrintStatementWithoutException() {
+    void testAccumulatesBalanceAcrossMultipleDeposits() {
+
+        usingAtSynchronized.deposit(60.0);
+        usingAtSynchronized.deposit(100.0);
+
+        assertEquals(160.0, usingAtSynchronized.balance);
+        assertEquals(2, usingAtSynchronized.counter);
+    }
+
+    @Test
+    void testPrintsStatementWithoutException() {
 
         assertDoesNotThrow(usingAtSynchronized::printStatement);
     }
 
     @Test
-    void shouldPropagateInterruptedException() {
+    void testThrowsInterruptedException() {
 
         currentThread().interrupt();
 

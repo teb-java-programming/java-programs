@@ -77,3 +77,9 @@ btm*.log
 
 http-client.private.env.json
 *.tlog
+
+# Generated output files
+**/output/
+
+# System files
+.DS_Store

@@ -41,13 +41,23 @@ class UsingAtLockedTest {
     }
 
     @Test
-    void shouldPrintStatementWithoutException() {
+    void testAccumulatesBalanceAcrossMultipleDeposits() {
+
+        usingAtLocked.deposit(120.0);
+        usingAtLocked.deposit(60.0);
+
+        assertEquals(180.0, usingAtLocked.balance);
+        assertEquals(2, usingAtLocked.counter);
+    }
+
+    @Test
+    void testPrintsStatementWithoutException() {
 
         assertDoesNotThrow(usingAtLocked::printStatement);
     }
 
     @Test
-    void shouldPropagateInterruptedException() {
+    void testThrowsInterruptedException() {
 
         currentThread().interrupt();
 

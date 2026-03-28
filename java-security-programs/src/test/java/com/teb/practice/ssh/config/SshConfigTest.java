@@ -67,7 +67,7 @@ class SshConfigTest {
 
     @SuppressWarnings("resource")
     @Test
-    void shouldThrowWhenInputStreamFailsDuringRead() {
+    void testThrowsExceptionWhenInputStreamFailsDuringRead() {
 
         InputStream failingStream =
                 new InputStream() {

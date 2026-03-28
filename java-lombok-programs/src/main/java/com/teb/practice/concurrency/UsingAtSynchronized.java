@@ -1,12 +1,13 @@
 package com.teb.practice.concurrency;
 
-import static java.lang.System.out;
 import static java.lang.Thread.currentThread;
 import static java.lang.Thread.sleep;
 
 import lombok.SneakyThrows;
 import lombok.Synchronized;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public class UsingAtSynchronized {
 
     int counter = 0;
@@ -18,7 +19,8 @@ public class UsingAtSynchronized {
 
         balance += amount;
         counter++;
-        out.println(currentThread().getName() + " Balance: £" + balance);
+
+        log.info("{} Balance: £{}", currentThread().getName(), balance);
     }
 
     // @SneakyThrows invokes checked exceptions without explicit try-catch
@@ -27,6 +29,7 @@ public class UsingAtSynchronized {
     void printStatement() {
 
         sleep(200);
-        out.println(currentThread().getName() + " Statement printed");
+
+        log.info("{} Statement printed", currentThread().getName());
     }
 }

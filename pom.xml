@@ -13,6 +13,7 @@
         <module>java-basic-programs</module>
         <module>java-code-solution-programs</module>
         <module>java-collection-stream-programs</module>
+        <module>java-file-handling-programs</module>
         <module>java-lombok-programs</module>
         <module>java-mapstruct-programs</module>
         <module>java-security-programs</module>
