@@ -1,4 +1,4 @@
-package com.teb.practice.util.worksheet;
+package com.teb.practice.util.spreadsheet;
 
 import com.teb.practice.core.Reader;
 import com.teb.practice.core.Writer;

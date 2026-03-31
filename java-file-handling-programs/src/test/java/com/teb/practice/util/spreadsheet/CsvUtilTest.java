@@ -1,4 +1,4 @@
-package com.teb.practice.util.worksheet;
+package com.teb.practice.util.spreadsheet;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertInstanceOf;
@@ -36,7 +36,6 @@ class CsvUtilTest {
 
         List<Data> output = csvUtil.read(FILE_PATH);
 
-        assertEquals(input.size(), output.size());
         assertEquals(input, output);
     }
 

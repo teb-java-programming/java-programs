@@ -25,6 +25,7 @@ public class WordUtil implements Writer<Data> {
             xwpfParagraph.createRun().setText("Data Report");
 
             for (Data data : dataList) {
+                xwpfParagraph.createRun().addBreak();
                 xwpfParagraph
                         .createRun()
                         .setText(data.name() + "  |  " + data.age() + "  |  " + data.salary());

@@ -1,4 +1,4 @@
-package com.teb.practice.util.worksheet;
+package com.teb.practice.util.spreadsheet;
 
 import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;

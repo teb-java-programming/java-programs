@@ -1,4 +1,4 @@
-package com.teb.practice.util.worksheet;
+package com.teb.practice.util.spreadsheet;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertInstanceOf;
@@ -38,7 +38,6 @@ class ExcelUtilTest {
 
         List<Data> output = excelUtil.read(FILE_PATH);
 
-        assertEquals(input.size(), output.size());
         assertEquals(input, output);
     }
 
