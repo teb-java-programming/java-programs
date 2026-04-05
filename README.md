@@ -8,7 +8,7 @@
 
 #### Java Solution Programs (java-code-solution-programs)
 
-#### Java File Handling Programs (java-file-handling-programs)
+#### File Handling Programs (java-file-handling-programs)
 
 #### Lombok Programs (java-lombok-programs)
 

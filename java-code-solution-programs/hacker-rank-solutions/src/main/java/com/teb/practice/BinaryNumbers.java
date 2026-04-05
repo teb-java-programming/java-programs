@@ -6,8 +6,6 @@ package com.teb.practice;
  * When working with different bases, it is common to show the base as a subscript.
  */
 
-import static com.teb.practice.constants.Constants.BLANK;
-
 import static java.lang.Long.parseLong;
 import static java.lang.Long.toBinaryString;
 import static java.lang.Math.max;
@@ -18,7 +16,7 @@ public class BinaryNumbers {
 
     protected long calculateSumOfBinarySequence(int input) {
 
-        List<String> stringList = List.of(toBinaryString(input).split(BLANK));
+        List<String> stringList = List.of(toBinaryString(input).split(""));
         long temp = 0;
         long sum = 0;
 

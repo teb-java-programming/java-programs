@@ -1,6 +1,5 @@
 package com.teb.practice.streams;
 
-import static com.teb.practice.constants.Constants.SPACE;
 import static com.teb.practice.constants.Constants.WORDS;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -53,7 +52,7 @@ class StreamPracticeTest {
 
         // findFirst() returns the first item from a list when condition is satisfied
         String result =
-                RANDOM_WORDS.stream().filter(word -> word.endsWith("e")).findFirst().orElse(SPACE);
+                RANDOM_WORDS.stream().filter(word -> word.endsWith("e")).findFirst().orElse(" ");
 
         assertTrue(StringUtils.isNotEmpty(result));
         assertEquals("magazine", result);
@@ -67,7 +66,7 @@ class StreamPracticeTest {
                 RANDOM_WORDS.parallelStream()
                         .filter(word -> word.endsWith("e"))
                         .findAny()
-                        .orElse(SPACE);
+                        .orElse(" ");
 
         assertTrue(StringUtils.isNotEmpty(result));
     }
