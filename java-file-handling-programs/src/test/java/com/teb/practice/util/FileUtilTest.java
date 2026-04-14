@@ -82,7 +82,7 @@ class FileUtilTest {
     }
 
     @Test
-    void shouldThrowWhenIOExceptionOccurs() throws IOException {
+    void testThrowsWhenIOExceptionOccurs() throws IOException {
 
         when(mockFile.getParentFile()).thenReturn(null);
         when(mockFile.exists()).thenReturn(false);

@@ -1,4 +1,4 @@
-package com.teb.practice;
+package com.teb.practice.core;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

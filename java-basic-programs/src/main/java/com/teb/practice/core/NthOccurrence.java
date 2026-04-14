@@ -1,4 +1,4 @@
-package com.teb.practice;
+package com.teb.practice.core;
 
 public class NthOccurrence {
 

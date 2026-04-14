@@ -1,4 +1,4 @@
-package com.teb.practice;
+package com.teb.practice.core;
 
 import static java.time.LocalTime.parse;
 import static java.time.format.DateTimeFormatter.ofPattern;

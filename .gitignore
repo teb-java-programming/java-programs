@@ -53,6 +53,9 @@ replay_pid*
 *.iws
 *.uuid
 
+# DataGrip
+data/
+
 # mpeltonen/sbt-idea plugin
 .idea_modules/
 
@@ -60,6 +63,7 @@ replay_pid*
 log/
 target/
 .repository/
+pom.xml.versionsBackup
 
 # VI editor
 *.swp

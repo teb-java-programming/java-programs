@@ -10,6 +10,8 @@
 
 #### File Handling Programs (java-file-handling-programs)
 
+#### Jackson Programs (java-jackson-programs)
+
 #### Lombok Programs (java-lombok-programs)
 
 #### MapStruct Programs (java-mapstruct-programs)
