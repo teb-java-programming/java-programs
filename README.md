@@ -4,9 +4,9 @@
 
 #### Basic Programs (java-basic-programs)
 
-#### Collection Programs (java-collection-stream-programs)
-
 #### Java Solution Programs (java-code-solution-programs)
+
+#### Collection Programs (java-collection-stream-programs)
 
 #### File Handling Programs (java-file-handling-programs)
 
