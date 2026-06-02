@@ -27,7 +27,7 @@ The project requires the following software and plugins to be installed.
 #### Software
 
 - IntelliJ or Eclipse
-- Java 8 and above
+- Java 17 and above
 - Maven
 - Git
 

@@ -70,6 +70,7 @@ pom.xml.versionsBackup
 
 # Log files
 *.log
+*.log.*
 
 # Lock and temporary files
 *.lck
@@ -85,5 +86,10 @@ http-client.private.env.json
 # Generated output files
 **/output/
 
+# Local environment
+.env
+.env.*
+
 # System files
 .DS_Store
+Thumbs.db

@@ -10,12 +10,6 @@ public class Factorial {
 
         if (input <= 1) return 1;
 
-        long temp = input;
-        long result = 1;
-
-        temp *= findFactorial(--input);
-        result *= temp;
-
-        return result;
+        return input * findFactorial(--input);
     }
 }
