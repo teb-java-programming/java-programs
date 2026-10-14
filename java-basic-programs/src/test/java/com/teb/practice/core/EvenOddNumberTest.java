@@ -8,21 +8,21 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-class EvenNumberTest {
+class EvenOddNumberTest {
 
-    private final EvenNumber evenNumber = new EvenNumber();
+    private final EvenOddNumber evenOddNumber = new EvenOddNumber();
 
     @ParameterizedTest
     @CsvSource({"8, Even", "11, Odd", "-22, Even", "-5, Odd"})
     void testEvenOrOdd(int input, String result) {
 
-        assertEquals(result, evenNumber.findEvenOdd(input));
+        assertEquals(result, evenOddNumber.findEvenOdd(input));
     }
 
     @Test
     void testThrowsExceptionForInvalidInput() {
 
-        Exception e = assertThrows(RuntimeException.class, () -> evenNumber.findEvenOdd(0));
+        Exception e = assertThrows(RuntimeException.class, () -> evenOddNumber.findEvenOdd(0));
         assertInstanceOf(ArithmeticException.class, e);
     }
 }

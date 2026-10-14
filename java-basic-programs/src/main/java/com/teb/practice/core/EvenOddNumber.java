@@ -1,6 +1,6 @@
 package com.teb.practice.core;
 
-public class EvenNumber {
+public class EvenOddNumber {
 
     protected String findEvenOdd(int input) {
 
