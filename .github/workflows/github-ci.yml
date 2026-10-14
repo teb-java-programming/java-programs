@@ -68,3 +68,4 @@ jobs:
 
           git push
           git push origin "v$NEW_VERSION"
+          
