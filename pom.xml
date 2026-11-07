@@ -22,10 +22,13 @@
 
     <properties>
         <java.version>25</java.version>
-        <springcontext.version>7.0.9</springcontext.version>
-        <lombok.version>1.18.48</lombok.version>
+
         <jackson.version>3.2.3</jackson.version>
+        <lombok.version>1.18.48</lombok.version>
+        <mapstruct.version>1.6.3</mapstruct.version>
         <mockito.version>5.24.0</mockito.version>
+        <springcontext.version>7.0.9</springcontext.version>
+
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -46,12 +49,12 @@
             <dependency>
                 <groupId>org.mapstruct</groupId>
                 <artifactId>mapstruct</artifactId>
-                <version>1.6.3</version>
+                <version>${mapstruct.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-test</artifactId>
-                <version>4.1.1</version>
+                <version>4.1.2</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
