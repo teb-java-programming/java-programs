@@ -1,0 +1,151 @@
+[
+  {
+    "id": "ILM001",
+    "name": "Mei Tanaka",
+    "experience": "STUDENT",
+    "region": "Asia",
+    "memberSince": "2024-09-03",
+    "borrowedBooks": null,
+    "pendingFines": [
+      3.25,
+      1.50
+    ]
+  },
+  {
+    "id": "ILM002",
+    "name": "Amina Yusuf",
+    "experience": "PROFESSIONAL",
+    "region": "Africa",
+    "memberSince": "2019-11-04",
+    "borrowedBooks": [
+      "Half of a Yellow Sun",
+      "The Shadow King"
+    ],
+    "pendingFines": [
+      1.25,
+      2.50,
+      0.75
+    ]
+  },
+  {
+    "id": "ILM003",
+    "name": "Noah Williams",
+    "experience": "STUDENT",
+    "region": "North America",
+    "memberSince": "2025-02-14",
+    "borrowedBooks": null,
+    "pendingFines": null
+  },
+  {
+    "id": "ILM004",
+    "name": "Kuntal Ganguly",
+    "experience": "PROFESSIONAL",
+    "region": "Asia",
+    "memberSince": "2024-02-08",
+    "borrowedBooks": [
+      "The Margate Murders",
+      "Him",
+      "The Devil You Know"
+    ],
+    "pendingFines": []
+  },
+  {
+    "id": "ILM005",
+    "name": "Valentina Valdivia",
+    "experience": "STUDENT",
+    "region": "South America",
+    "memberSince": "2025-12-19",
+    "borrowedBooks": [],
+    "pendingFines": [
+      2.10
+    ]
+  },
+  {
+    "id": "ILM006",
+    "name": "Yuki Nakamura",
+    "experience": "BUSINESS",
+    "region": "Asia",
+    "memberSince": "2020-08-10",
+    "borrowedBooks": [
+      "The Blockchain Blueprint",
+      "Agentic Artificial Intelligence",
+      "Revolutionizing Business Operations"
+    ],
+    "pendingFines": [
+      5.00,
+      3.75
+    ]
+  },
+  {
+    "id": "ILM007",
+    "name": "Mateo Rojas",
+    "experience": "STUDENT",
+    "region": "South America",
+    "memberSince": "2026-06-12",
+    "borrowedBooks": [
+      "One Hundred Years of Solitude",
+      "The Alchemist"
+    ],
+    "pendingFines": []
+  },
+  {
+    "id": "ILM008",
+    "name": "Tarni Warragal",
+    "experience": "BUSINESS",
+    "region": "Australia",
+    "memberSince": "2023-04-18",
+    "borrowedBooks": [
+      "The Psychology of Money",
+      "Struggle Without End"
+    ],
+    "pendingFines": [
+      4.50
+    ]
+  },
+  {
+    "id": "ILM009",
+    "name": "Elena Petrova",
+    "experience": "PROFESSIONAL",
+    "region": "Europe",
+    "memberSince": "2016-07-29",
+    "borrowedBooks": [
+      "The Book Thief",
+      "The Nightingale",
+      "All the Light We Cannot See",
+      "The Tattooist of Auschwitz"
+    ],
+    "pendingFines": []
+  },
+  {
+    "id": "ILM010",
+    "name": "Kwame Chukwuemeka",
+    "experience": "PROFESSIONAL",
+    "region": "Africa",
+    "memberSince": "2018-03-22",
+    "borrowedBooks": [],
+    "pendingFines": []
+  },
+  {
+    "id": "ILM011",
+    "name": "Alistair MacKenzie",
+    "experience": "STUDENT",
+    "region": "Europe",
+    "memberSince": "2021-09-15",
+    "borrowedBooks": [],
+    "pendingFines": [
+      1.55
+    ]
+  },
+  {
+    "id": "ILM012",
+    "name": "Gabriel Santos",
+    "experience": "BUSINESS",
+    "region": "South America",
+    "memberSince": "2022-05-16",
+    "borrowedBooks": [
+      "The Art of War",
+      "The Lean Startup"
+    ],
+    "pendingFines": null
+  }
+]

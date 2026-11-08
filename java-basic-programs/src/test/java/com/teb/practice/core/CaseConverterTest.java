@@ -61,7 +61,7 @@ class CaseConverterTest {
 
     @ParameterizedTest
     @MethodSource("caseConversionProvider")
-    void shouldConvertCases(
+    void testCaseConversion(
             String input,
             String camelCase,
             String kebabCase,

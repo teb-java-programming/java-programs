@@ -8,6 +8,8 @@
 
 #### Collection Programs (java-collection-stream-programs)
 
+#### Concurrency Programs (java-concurrency-stream-programs)
+
 #### File Handling Programs (java-file-handling-programs)
 
 #### Jackson Programs (java-jackson-programs)
